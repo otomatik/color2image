@@ -1,8 +1,12 @@
 <?php
 $_SERVER['HTTP_ROOT'] = "/color2image/";
+$dim = "([\d]*)x([\d]*)\/";
+$ext = "\.(jpg|jpeg|png)";
+$regex_hex = "([a-fA-F\d]{6})";
+$regex_rgb = "([\d]*,[\d]*,[\d]*)";
 
-if(preg_match("#^{$_SERVER['HTTP_ROOT']}([\d]*)x([\d]*)\/([a-fA-F\d]{6})\.(jpg|jpeg|png)#", $_SERVER['REQUEST_URI'], $match)
-or preg_match("#^{$_SERVER['HTTP_ROOT']}([\d]*)x([\d]*)\/([\d]*,[\d]*,[\d]*)\.(jpg|jpeg|png)#", $_SERVER['REQUEST_URI'], $match))
+if(preg_match("#^{$_SERVER['HTTP_ROOT']}$dim$regex_hex$ext#", $_SERVER['REQUEST_URI'], $match)
+or preg_match("#^{$_SERVER['HTTP_ROOT']}$dim$regex_rgb$ext#", $_SERVER['REQUEST_URI'], $match))
 {
 	$width	= $match[1];
 	$height	= $match[2];
