@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /color2image/
+RewriteRule .* index.php
