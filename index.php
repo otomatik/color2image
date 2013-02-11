@@ -23,7 +23,7 @@ or preg_match("#^{$_SERVER['HTTP_ROOT']}$dim$regex_rgb$ext#", $_SERVER['REQUEST_
 	
 	$format == "png" ? imagepng($im) : imagejpeg($im);
 }
-else echo "error the pattern is : width x height / hexa(6) . png";
+else echo "Error the pattern is : width x height / hexa|rgb . png|jpg";
 
 function ImageColorAllocateFromHex ($img, $hexstr) 
 { 
