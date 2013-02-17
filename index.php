@@ -1,7 +1,7 @@
 <?php
 $_SERVER['HTTP_ROOT'] = "/color2image/";
 $dim = "([\d]*)x([\d]*)\/";
-$ext = "\.(jpg|jpeg|png)";
+$ext = "[\/\w]*\.(jpg|jpeg|png)";
 $regex_hex = "([a-fA-F\d]{6})";
 $regex_rgb = "([\d]*,[\d]*,[\d]*)";
 
@@ -23,7 +23,7 @@ or preg_match("#^{$_SERVER['HTTP_ROOT']}$dim$regex_rgb$ext#", $_SERVER['REQUEST_
 	
 	$format == "png" ? imagepng($im) : imagejpeg($im);
 }
-else echo "Error the pattern is : width x height / hexa|rgb . png|jpg";
+else echo "Error the pattern is : width x height / hexa|rgb [/name] . png|jpg";
 
 function ImageColorAllocateFromHex ($img, $hexstr) 
 { 
